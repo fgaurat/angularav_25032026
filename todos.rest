@@ -1,0 +1,23 @@
+
+@baseUrl=http://localhost:3001
+
+
+###
+GET {{baseUrl}}/todos
+
+###
+GET {{baseUrl}}/todos/1
+###
+DELETE {{baseUrl}}/todos/1
+
+
+###
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+    "userId": 1,
+    "id": 1,
+    "title": "delectus aut autem",
+    "completed": false
+  }
