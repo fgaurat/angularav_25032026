@@ -1,0 +1,46 @@
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+
+        <form class="row g-3" (submit)="submitTodo($event)">
+            <div class="col-12">
+                <label for="todoTitle" class="form-label">Titre</label>
+                <input 
+                [formField]="todoForm.title" type="text" class="form-control" id="todoTitle" placeholder="Todo title..."
+                data-cy="todo-input"
+                >
+                
+                @if(todoForm.title().invalid() && todoForm.title().touched()){
+                    <div class="alert alert-danger">
+                        Ce champ est requis
+                    </div>
+                }
+            </div>
+
+
+            <div class="col-12">
+                <div class="form-check">
+                    <input [formField]="todoForm.completed" class="form-check-input" type="checkbox" id="todoCompleted">
+                    <label class="form-check-label" for="todoCompleted">
+                        Completed
+                    </label>
+                </div>
+            </div>
+            <div class="col-12">
+                <button data-cy="todo-submit" type="submit" class="btn btn-primary" [disabled]="todoForm().invalid()">Ajouter</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<pre>
+    
+todoForm.title().value(): {{todoForm.title().value()}}
+todoForm().value().title: {{todoForm().value().title|json}}
+    
+    
+todoForm().value(): {{todoForm().value()|json}}
+todoModel.title: {{todoModel().title}}
+objTest: {{objTest}}
+objTest(): {{objTest()}}
+objTest(): {{objTest().prop1}}
+</pre>

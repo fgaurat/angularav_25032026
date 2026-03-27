@@ -5,13 +5,15 @@ import { routes } from './app.routes';
 import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { provideEffects } from '@ngrx/effects';
+import { todoReducer } from './features/todo/reducers/todo.reducer';
+import { TodoEffectService } from './features/todo/effects/todo-effect.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
-    provideStore(),
-    provideEffects(),
+    provideStore({todoList:todoReducer}),
+    provideEffects(TodoEffectService),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
   ],
 };

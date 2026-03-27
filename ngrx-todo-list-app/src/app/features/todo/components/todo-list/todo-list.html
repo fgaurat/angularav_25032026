@@ -1,37 +1,22 @@
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>title</th>
-            <th>completed</th>
-            <th>chkCompleted</th>
-            <th></th>
-        </tr>
-    </thead>
-
-    <tbody>
-        @for(todo of todos$|async;track todo.id){
-        <tr>
-            <td>{{todo.id}}</td>
-            <td>{{todo.title}}</td>
-            <td>{{todo.completed}}</td>
-            <td>
-                <!-- <input type="checkbox" [checked]="todo.completed"> -->
-                <input type="checkbox" [(ngModel)]="todo.completed">
-            </td>
-            <td>
-                <button class="btn btn-danger" (click)="delete(todo)">Delete</button>
-            </td>
-        </tr>
-    }
-    </tbody>
-</table>
-
-<!-- 
-<ul>
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>title</th>
+      <th>Completed</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
     @for(todo of todos$|async;track todo.id){
-        <li>{{todo.title}}</li>
+    <tr>
+      <td>{{ todo.id }}</td>
+      <td>{{ todo.title }}</td>
+      <td>{{ todo.completed }}</td>
+      <td>
+        <button (click)="onDeleteTodo(todo)" class="btn btn-danger">delete</button>
+      </td>
+    </tr>
     }
-
-</ul> -->
+  </tbody>
+</table>

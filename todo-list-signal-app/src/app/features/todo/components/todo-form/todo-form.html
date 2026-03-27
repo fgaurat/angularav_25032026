@@ -1,0 +1,36 @@
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+
+        <form class="row g-3" (ngSubmit)="submitTodo()" #todoForm="ngForm">
+            <div class="col-12">
+                <label for="todoTitle" class="form-label">Titre</label>
+                <input #todoTitle="ngModel" required name="todoTitle" [(ngModel)]="todoFormModel.title" type="text" class="form-control" id="todoTitle" placeholder="Todo title...">
+                @if(todoTitle.invalid && todoTitle.touched){
+                    <div class="alert alert-danger">
+                        Ce champ est requis
+                    </div>
+                }
+            </div>
+
+            <div class="col-12">
+                <div class="form-check">
+                    <input name="todoCompleted" [(ngModel)]="todoFormModel.completed" class="form-check-input" type="checkbox" id="todoCompleted">
+                    <label class="form-check-label" for="todoCompleted">
+                        Completed
+                    </label>
+                </div>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary" [disabled]="todoForm.invalid">Ajouter</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<pre>
+    todoForm: {{todoForm.value.todoTitle|json}}
+    todoForm.valid:{{todoForm.valid}}
+    todoTitle:{{todoTitle.value}}
+    todoTitle valid:{{todoTitle.valid}}
+    todoTitle invalid:{{todoTitle.invalid}}
+</pre>
