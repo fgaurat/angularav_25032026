@@ -1,0 +1,13 @@
+<form (ngSubmit)="addTodo()" data-cy="todo-form">
+  <div class="input-group">
+    <input
+      type="text"
+      [(ngModel)]="newTitle"
+      name="title"
+      placeholder="Ajouter une tâche..."
+      data-cy="todo-input"
+      required
+    />
+    <button type="submit" data-cy="todo-submit" [disabled]="!newTitle.trim()">Ajouter</button>
+  </div>
+</form>

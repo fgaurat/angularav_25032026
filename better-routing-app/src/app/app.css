@@ -1,0 +1,59 @@
+header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: #1976d2;
+  color: white;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+nav {
+  display: flex;
+  gap: 0.5rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+nav a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+nav a.active {
+  background: rgba(255, 255, 255, 0.3);
+  font-weight: bold;
+}
+
+.auth-controls {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.auth-controls button {
+  padding: 0.3rem 0.6rem;
+  border: 1px solid white;
+  background: transparent;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.auth-controls button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+main {
+  padding: 1.5rem;
+}

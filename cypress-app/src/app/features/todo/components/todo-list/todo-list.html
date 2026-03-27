@@ -1,0 +1,28 @@
+@if (store.todos().length === 0) {
+  <p class="empty-message" data-cy="empty-message">Aucune tâche pour le moment.</p>
+} @else {
+  <ul class="todo-list" data-cy="todo-list">
+    @for (todo of store.todos(); track todo.id) {
+      <li [class.completed]="todo.completed" data-cy="todo-item">
+        <input
+          type="checkbox"
+          [checked]="todo.completed"
+          (change)="store.toggle(todo.id)"
+          data-cy="todo-checkbox"
+        />
+        <span class="todo-title" data-cy="todo-title">{{ todo.title }}</span>
+        <button class="delete-btn" (click)="store.delete(todo.id)" data-cy="todo-delete">✕</button>
+      </li>
+    }
+  </ul>
+
+  <div class="stats" data-cy="todo-stats">
+    <span>{{ store.remainingCount() }} restante(s)</span>
+    <span>{{ store.completedCount() }} terminée(s)</span>
+    @if (store.completedCount() > 0) {
+      <button class="clear-btn" (click)="store.clearCompleted()" data-cy="clear-completed">
+        Supprimer terminées
+      </button>
+    }
+  </div>
+}
